@@ -1,17 +1,26 @@
-import Aside from '../components/left/sidebar';
+import Leftaside from '../components/left/sidebar';
+import Header from '../components/header';
+import Center from '../components/center/feed';
+import Rightaside from '../components/right/aside'
 
 function Homepage() {
     return (
         <div className="flex ">
-            <div className="basis-1/4 h-100  bg-gray-200">
-                <Aside />
-            </div>
-            <div className="basis-1 h-full bg-blue-200">
-                <div>header</div>
-                <div>
-                    <div>center</div>
-                    <div>right aside</div>
-                </div>
+            <aside className=" w-2/6 h-[100vh] bg-gradient-to-b from-gray-400 to-white">
+                <Leftaside />
+            </aside>
+            <div className="w-full h-full">
+                <header className='w-full h-32 bg-cyan-400'>
+                    <Header />
+                </header>
+                <main className='flex'>
+                    <div className='w-[70%] bg-red-500'>
+                        <Center />
+                    </div>
+                    <div className='w-[30%] bg-orange-200'>
+                        <Rightaside />
+                    </div>
+                </main>
             </div>
         </div>
     );
