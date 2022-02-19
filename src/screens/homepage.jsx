@@ -6,7 +6,7 @@ import Rightaside from '../components/right/aside'
 function Homepage() {
     return (
         <div className="flex ">
-            <aside className=" w-2/6 h-[100vh] bg-gradient-to-b from-gray-400 to-white">
+            <aside className=" w-2/6 bg-gradient-to-b from-gray-100 to-white">
                 <Leftaside />
             </aside>
             <div className="w-full h-full">
