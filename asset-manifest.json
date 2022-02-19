@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.css": "/Expertizo-Bootcamp-2022/static/css/main.0dbcd84a.css",
-    "main.js": "/Expertizo-Bootcamp-2022/static/js/main.997a6b07.js",
+    "main.css": "/Expertizo-Bootcamp-2022/static/css/main.990daf33.css",
+    "main.js": "/Expertizo-Bootcamp-2022/static/js/main.0b64fa52.js",
     "static/js/787.8f4c7155.chunk.js": "/Expertizo-Bootcamp-2022/static/js/787.8f4c7155.chunk.js",
-    "static/media/IMG_20211205_213225.jpg": "/Expertizo-Bootcamp-2022/static/media/IMG_20211205_213225.2e316eac7bba7125cdd6.jpg",
+    "static/media/profile.jpg": "/Expertizo-Bootcamp-2022/static/media/profile.5bbaefacf64d60c78c79.jpg",
+    "static/media/banner2.jpg": "/Expertizo-Bootcamp-2022/static/media/banner2.f3134a222247fbd16166.jpg",
     "static/media/Cards_Emblem_1Color_Blue.webp": "/Expertizo-Bootcamp-2022/static/media/Cards_Emblem_1Color_Blue.24eff7e7877f4423f219.webp",
     "index.html": "/Expertizo-Bootcamp-2022/index.html",
-    "main.0dbcd84a.css.map": "/Expertizo-Bootcamp-2022/static/css/main.0dbcd84a.css.map",
-    "main.997a6b07.js.map": "/Expertizo-Bootcamp-2022/static/js/main.997a6b07.js.map",
+    "main.990daf33.css.map": "/Expertizo-Bootcamp-2022/static/css/main.990daf33.css.map",
+    "main.0b64fa52.js.map": "/Expertizo-Bootcamp-2022/static/js/main.0b64fa52.js.map",
     "787.8f4c7155.chunk.js.map": "/Expertizo-Bootcamp-2022/static/js/787.8f4c7155.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0dbcd84a.css",
-    "static/js/main.997a6b07.js"
+    "static/css/main.990daf33.css",
+    "static/js/main.0b64fa52.js"
   ]
 }
