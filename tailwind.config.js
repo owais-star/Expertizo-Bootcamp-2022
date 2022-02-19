@@ -4,7 +4,10 @@ module.exports = {
   ],
   theme: {
     extend: {
-
+      backgroundImage: {
+        'coverphoto': "url('./assets/images/blockchainlogo.jpg')",
+        'profilephoto': "url('./assets/images/profile.jpg')",
+      }
     },
   },
   plugins: [],

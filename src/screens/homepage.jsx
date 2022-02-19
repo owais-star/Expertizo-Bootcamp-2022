@@ -1,5 +1,5 @@
 import Leftaside from '../components/left/sidebar';
-import Header from '../components/header';
+import Header from '../components/header/header';
 import Center from '../components/center/feed';
 import Rightaside from '../components/right/aside'
 

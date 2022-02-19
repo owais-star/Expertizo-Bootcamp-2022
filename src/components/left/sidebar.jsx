@@ -1,8 +1,8 @@
 // import "./sidebar.css";
 import logo from "../../assets/images/Cards_Emblem_1Color_Blue.webp";
 import image from "../../assets/images/profile.jpg";
-import banner1 from "../../assets/images/banner1.jpg";
-import banner2 from "../../assets/images/banner2.jpg";
+import banner1 from "../../assets/images/banner1.png";
+import banner2 from "../../assets/images/banner2.png";
 import { UilEstate, UilReact, UilMicrophone, UilBrain, UilBookOpen, UilPresentationPlay, UilLightbulbAlt, UilBriefcaseAlt, UilDesert } from '@iconscout/react-unicons';
 import ThemeToggleButton from "./theme toggle button/index";
 
@@ -26,7 +26,7 @@ const Nav = [
 ];
 function Navigationbutton(props) {
     return (
-        <button className="flex flex-row my-2 w-[85%] bg-gradient-to-r from-gray-100 to-blue-100 hover:text-white h-16 items-center rounded-2xl hover:from-blue-700 hover:to-blue-700 py-2 ">
+        <button className="flex flex-row drop-shadow-md my-2 w-[85%] bg-gradient-to-r from-gray-100 to-blue-100 hover:text-white h-16 items-center rounded-2xl hover:from-blue-700 hover:to-blue-700 py-2 ">
             {props.icon}
             <span className="py-1 flex align-middle text-lg font-medium">{props.Name}</span>
         </button>
@@ -43,7 +43,7 @@ function Aside() {
                 </div>
                 <h1 className="text-white text-2xl font-medium">my2cents</h1>
                 <div className="w-[85%] mt-6">
-                    <div className="h-28 rounded-tl-2xl rounded-tr-2xl w-full bg-cover bg-no-repeat bg-[url('https://media.istockphoto.com/photos/data-analyzing-in-exchange-stock-market-the-candle-chars-on-display-picture-id880534636')]"></div>
+                    <div className="h-28 rounded-tl-2xl rounded-tr-2xl w-full bg-cover bg-no-repeat bg-coverphoto"></div>
                     <div className="flex flex-col h-24 w-full  border-b-2  items-center bg-white">
                         <div className="relative  top-[-28px] border-2 border-blue-300 p-0.5 rounded-full">
                             <img className="h-12 w-12 rounded-full" src={image} alt="" />
@@ -54,7 +54,7 @@ function Aside() {
                 </div>
             </div>
             {/* first secction done */}
-            <div className="flex flex-col w-[85%] h-24 bg-white justify-center rounded-bl-2xl rounded-br-2xl">
+            <div className="flex flex-col w-[85%] drop-shadow-xl h-24 bg-white justify-center rounded-bl-2xl rounded-br-2xl">
                 <div className="flex flex-row justify-around px-8">
                     <Statistics quantity="5k" category="Posts" />
                     <Statistics quantity="500" category="Videos" />
@@ -78,10 +78,10 @@ function Aside() {
             <div className="flex flex-col w-[85%] items-center mt-8">
                 <ThemeToggleButton />
                 <div className='mt-10  w-full'>
-                    <img src={banner1} className="rounded-xl h-[550px]" />
+                    <img src={banner1} className="rounded-xl h-[70rem]" />
                 </div>
                 <div className='mt-10  w-full'>
-                    <img src={banner2} className="rounded-xl h-[300px]" />
+                    <img src={banner2} className="rounded-xl h-[25rem]" />
                 </div>
             </div>
         </div>
