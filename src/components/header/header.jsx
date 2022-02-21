@@ -34,7 +34,7 @@ const Header = () => {
             </div>
             <div>
                 <div className="w-[5.3rem] h-[2.7rem] flex items-center justify-center rounded-3xl border-[1px] border-blue-300 bg-blue-50">
-                    <img src={image} className=" rounded-full h-8 w-8" />
+                    <img src={image} alt="" className=" rounded-full h-8 w-8" />
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-[1.3rem] ml-2 text-semibold stroke-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>

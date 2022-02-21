@@ -18,7 +18,7 @@ function App() {
           <Header />
         </header>
         <main className='flex'>
-          <div className='w-[70%] bg-red-500'>
+          <div className='w-[70%]'>
             <Center />
           </div>
           <div className='w-[30%] bg-orange-200'>
