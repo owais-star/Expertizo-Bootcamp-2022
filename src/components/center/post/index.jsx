@@ -31,30 +31,30 @@ const Post = (props) => {
                 </div>
 
                 <div className="flex w-[85%] my-5 justify-between">
-                    <div className="flex">
+                    <div className="flex justify-between">
                         <div className="flex items-center justify-center cursor-pointer">
-                            <UilEye className="h-7 w-10 fill-blue-700" />
-                            <span className="mr-1  ml-[-6px] text-blue-500">{props.views}</span>
+                            <UilEye className="h-7 w-8 fill-blue-700" />
+                            <span className="mr-1  text-blue-500">{props.views}</span>
                         </div>
                         <div className="flex items-center justify-center cursor-pointer">
-                            <UilSmile className="h-6 w-10 fill-blue-700" />
-                            <span className="mr-1 ml-[-6px] text-blue-500">{props.likes}</span>
+                            <UilSmile className="h-7 w-8 fill-blue-700" />
+                            <span className="mr-1 text-blue-500">{props.likes}</span>
                         </div>
                         <div className="flex items-center justify-center cursor-pointer">
-                            <UilMeh className="h-6 w-10 fill-blue-700" />
-                            <span className="mr-1 ml-[-6px] text-blue-500">{props.dislikes}</span>
+                            <UilMeh className="h-7 w-8 fill-blue-700" />
+                            <span className="mr-1 text-blue-500">{props.dislikes}</span>
                         </div>
                         <div className="flex items-center justify-center cursor-pointer">
-                            <UilBookmark className="h-6 w-10 fill-blue-700" />
-                            <span className="mr-1 ml-[-6px] text-blue-500">{props.shares}</span>
+                            <UilBookmark className="h-7 w-8 fill-blue-700" />
+                            <span className="mr-1 text-blue-500">{props.shares}</span>
                         </div>
                     </div>
                     <div className="flex">
                         <div>
-                            <UilMessage className="h-6 w-10 fill-blue-700" />
+                            <UilMessage className="h-7 w-8 fill-blue-700" />
                         </div>
                         <div className="ml-2">
-                            <UilEllipsisH className="h-6 w-10 fill-blue-700" />
+                            <UilEllipsisH className="h-7 w-8 fill-blue-700" />
                         </div>
                     </div>
                 </div>

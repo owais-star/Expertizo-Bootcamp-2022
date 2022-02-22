@@ -9,8 +9,8 @@ const Header = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
                 <input type={"search"} placeholder={placeholder} className="w-[89%] placeholder:text-blue-500 placeholder:font-xl placeholder:text-[0.98rem] pl-2 outline-none" />
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-[1.6rem]" fill="none" viewBox="0 0 24 24" stroke="blue">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-[1.6rem]" fill="none" viewBox="0 0 24 24" stroke="blue">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                 </svg>
             </div>
             <div className="flex w-24 align-center justify-evenly">

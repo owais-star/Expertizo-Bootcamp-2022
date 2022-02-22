@@ -4,7 +4,7 @@ import image from "../../assets/images/profile.jpg";
 import banner1 from "../../assets/images/banner1.png";
 import banner2 from "../../assets/images/banner2.png";
 import { UilEstate, UilReact, UilMicrophone, UilBrain, UilBookOpen, UilPresentationPlay, UilLightbulbAlt, UilBriefcaseAlt, UilDesert } from '@iconscout/react-unicons';
-import ThemeToggleButton from "./theme toggle button/index";
+import ThemeToggleButton from "./themeToggleButton/index";
 
 function Statistics(props) {
     return (
@@ -70,7 +70,7 @@ function Aside() {
             <div className="flex flex-col mt-12 w-full justify-center items-center border-b-2 pb-3 ">
                 {Nav.map((item, index) => {
                     return (
-                        <Navigationbutton Name={item.Name} icon={item.icon} />
+                        <Navigationbutton key={index} Name={item.Name} icon={item.icon} />
                     )
                 })}
             </div>

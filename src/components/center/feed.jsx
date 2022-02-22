@@ -1,8 +1,11 @@
 import banner3 from "../../assets/images/travellogo.png";
-import SelectedCategory from "./selected category post count/index"
-import FilterPosts from "./filter posts/index"
+import SelectedCategory from "./selectedCategoryPostCount/index"
+import FilterPosts from "./filterPosts/index"
 import Post from "./post/index.jsx"
+import Pagination from "./pagination/index"
+import PostEditor from "./postEditor/index"
 import profile from "../../assets/images/profile.jpg"
+import { UilInvoice } from '@iconscout/react-unicons'
 
 
 const postData = [
@@ -52,19 +55,71 @@ function App() {
                 </div>
             </div>
             <div className="w-full mt-3">
-                {postData.map((item) => {
+                {postData.map((item, index) => {
                     return (
-                        <Post name={item.name} views={item.views} likes={item.likes} dislikes={item.dislikes} shares={item.shares} postText={item.postText} profilePictureUrl={item.profilePictureUrl} topic={item.topic} />
+                        <Post key={index} name={item.name} views={item.views} likes={item.likes} dislikes={item.dislikes} shares={item.shares} postText={item.postText} profilePictureUrl={item.profilePictureUrl} topic={item.topic} />
                     )
                 })}
             </div>
-            <div className="w-full">
-                pagination
+            <div className="flex justify-center mt-3 w-full">
+                <Pagination />
             </div>
-            <div className="w-[85%]">
-                <div className="w-full">monetize a topic</div>
-                <div className="w-full">create post</div>
-                <div className="w-full">ad banner</div>
+            <div className="w-[92%]">
+                <div className="w-full my-8">
+                    <div className="flex items-center justify-center w-full h-28 bg-blue-700 rounded-2xl">
+                        <div className="flex items-center cursor-pointer justify-center w-[90%] h-12 p-4 bg-white rounded-2xl">
+                            <div className="">
+                                <UilInvoice className="fill-blue-700 mr-3" />
+                            </div>
+                            <h1 className="text-blue-700 text-lg font-semibold ">Monitize a Topic</h1>
+                        </div>
+                    </div>
+                </div>
+                <div className="flex flex-col w-full">
+                    <div className=" flex items-center pl-6 w-full h-14 bg-blue-100 rounded-2xl">
+                        <h1 className="text-2xl text-blue-500 font-medium">Create a Post</h1>
+                    </div>
+                    <div className="w-full mt-3">
+                        <PostEditor />
+                    </div>
+                    <div className="w-full">
+                        <div className='flex items-center justify-between mt-2'>
+                            <div className='flex flex-col'>
+                                <div>
+                                    <h2 className="font-medium">Stored on chain?</h2>
+                                </div>
+                                <div className='flex justify-between'>
+                                    <div className='flex'>
+                                        <div>
+                                            <input className="h-4 w-4" value="true" name="storedOnChain" type={'checkbox'} />
+                                        </div>
+                                        <div className='ml-1'>
+                                            Sure
+                                        </div>
+                                    </div>
+                                    <div className='flex'>
+                                        <div>
+                                            <input className="h-4 w-4" value="false" name="storedOnChain" type={'checkbox'} />
+                                        </div>
+                                        <div className='ml-1'>
+                                            Nope
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <button className="flex justify-center w-[31rem] h-11 items-center hover:bg-blue-700 bg-blue-600 rounded-2xl">
+
+                                    <h3 className='text-white text-xl'>Post</h3>
+
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="w-full">
+                    <img src={banner3} alt="" className="mt-8 w-full rounded-2xl h-64" />
+                </div>
             </div>
         </div>
     );
