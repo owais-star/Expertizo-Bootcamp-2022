@@ -5,6 +5,7 @@ import banner1 from "../../assets/images/banner1.png";
 import banner2 from "../../assets/images/banner2.png";
 import { UilEstate, UilReact, UilMicrophone, UilBrain, UilBookOpen, UilPresentationPlay, UilLightbulbAlt, UilBriefcaseAlt, UilDesert } from '@iconscout/react-unicons';
 import ThemeToggleButton from "./themeToggleButton/index";
+import './sidebar.css'
 
 function Statistics(props) {
     return (
@@ -53,35 +54,37 @@ function Aside() {
                     </div>
                 </div>
             </div>
-            {/* first secction done */}
-            <div className="flex flex-col w-[85%] drop-shadow-xl h-24 bg-white justify-center rounded-bl-2xl rounded-br-2xl">
-                <div className="flex flex-row justify-around px-8">
-                    <Statistics quantity="5k" category="Posts" />
-                    <Statistics quantity="500" category="Videos" />
-                    <Statistics quantity="40" category="Books" />
+            <div className="flex flex-col border-r-2 items-center w-full">
+                {/* first secction done */}
+                <div className="flex flex-col w-[85%] drop-shadow-xl h-24 bg-white justify-center rounded-bl-2xl rounded-br-2xl">
+                    <div className="flex flex-row justify-around px-8">
+                        <Statistics quantity="5k" category="Posts" />
+                        <Statistics quantity="500" category="Videos" />
+                        <Statistics quantity="40" category="Books" />
+                    </div>
+                    <div className="flex flex-row my-3 px-3 justify-between">
+                        <Statistics quantity="2k" category="Ideas" />
+                        <Statistics quantity="126" category="Introductions" />
+                        <Statistics quantity="652" category="Podcasts" />
+                    </div>
                 </div>
-                <div className="flex flex-row my-3 px-3 justify-between">
-                    <Statistics quantity="2k" category="Ideas" />
-                    <Statistics quantity="126" category="Introductions" />
-                    <Statistics quantity="652" category="Podcasts" />
+                {/* Navigation Buttons */}
+                <div className="flex flex-col mt-12 w-full justify-center items-center border-b-2 pb-3 ">
+                    {Nav.map((item, index) => {
+                        return (
+                            <Navigationbutton key={index} Name={item.Name} icon={item.icon} />
+                        )
+                    })}
                 </div>
-            </div>
-            {/* Navigation Buttons */}
-            <div className="flex flex-col mt-12 w-full justify-center items-center border-b-2 pb-3 ">
-                {Nav.map((item, index) => {
-                    return (
-                        <Navigationbutton key={index} Name={item.Name} icon={item.icon} />
-                    )
-                })}
-            </div>
 
-            <div className="flex flex-col w-[85%] items-center mt-8">
-                <ThemeToggleButton />
-                <div className='mt-10  w-full'>
-                    <img src={banner1} className="rounded-xl h-[70rem]" />
-                </div>
-                <div className='mt-10  w-full'>
-                    <img src={banner2} className="rounded-xl h-[25rem]" />
+                <div className="flex flex-col w-[85%] items-center mt-8">
+                    <ThemeToggleButton />
+                    <div className='mt-10  w-full'>
+                        <img src={banner1} className="rounded-xl h-[70rem]" />
+                    </div>
+                    <div className='mt-10  w-full'>
+                        <img src={banner2} className="rounded-xl h-[25rem]" />
+                    </div>
                 </div>
             </div>
         </div>

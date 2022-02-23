@@ -54,7 +54,7 @@ function App() {
                     <FilterPosts />
                 </div>
             </div>
-            <div className="w-full mt-3">
+            <div className="w-full mt-3 ">
                 {postData.map((item, index) => {
                     return (
                         <Post key={index} name={item.name} views={item.views} likes={item.likes} dislikes={item.dislikes} shares={item.shares} postText={item.postText} profilePictureUrl={item.profilePictureUrl} topic={item.topic} />
@@ -107,13 +107,11 @@ function App() {
                                     </div>
                                 </div>
                             </div>
-                            <div>
-                                <button className="flex justify-center w-[31rem] h-11 items-center hover:bg-blue-700 bg-blue-600 rounded-2xl">
+                            <button className="flex justify-center w-[31rem] h-11 items-center hover:bg-blue-700 bg-blue-600 rounded-2xl">
 
-                                    <h3 className='text-white text-xl'>Post</h3>
+                                <h3 className='text-white text-xl'>Post</h3>
 
-                                </button>
-                            </div>
+                            </button>
                         </div>
                     </div>
                 </div>
