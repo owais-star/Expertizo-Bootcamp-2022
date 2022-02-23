@@ -18,9 +18,11 @@ const Footer = () => {
                 <h1 className='text-white text-xl '>My2Cents</h1>
             </div>
             <div className='flex'>
-                {Pages.map((item) => {
-                    return <ul className='flex'><li className='ml-3 font-light text-sm cursor-pointer opacity-90 hover:opacity-100 hover:underline text-white'>{item.name} </li></ul>
-                })}
+                <ul className='flex'>
+                    {Pages.map((item, index) => {
+                        return <li key={index} className='ml-3 font-light text-sm cursor-pointer opacity-90 hover:opacity-100 hover:underline text-white'>{item.name} </li>
+                    })}
+                </ul>
             </div>
             <div></div>
         </div>

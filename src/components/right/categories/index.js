@@ -47,7 +47,7 @@ const Category = () => {
                 </div>
                 <div className="flex pl-3 mt-5 border-b-gray-200 h-16 border-b-2 border-gray-100 ">
                     <div className="flex items-center h-4">
-                        <input className="h-4 w-4" type="checkbox" value="true" checked />
+                        <input className="h-4 w-4" type="checkbox" value="true" />
                         <h5 className="ml-2 text-sm text-blue-400 font-light underline">Select all categories</h5>
                     </div>
                 </div>

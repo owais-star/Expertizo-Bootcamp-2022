@@ -36,7 +36,7 @@ function Navigationbutton(props) {
 
 function Aside() {
     return (
-        <div className="flex flex-col items-center " >
+        <div className="flex flex-col items-center  " >
 
             <div className="flex flex-col w-full  items-center h-auto bg-gradient-to-r from-sky-500 to-indigo-500 bg-cover bg-no-repeat  " >
                 <div className="mt-6 mb-3.5 border-2 rounded-full">

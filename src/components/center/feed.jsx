@@ -6,9 +6,12 @@ import Pagination from "./pagination/index"
 import PostEditor from "./postEditor/index"
 import profile from "../../assets/images/profile.jpg"
 import { UilInvoice } from '@iconscout/react-unicons'
+import { db } from '../../config/firebase'
+import { addDoc, doc, getDocs, collection, onSnapshot } from 'firebase/firestore'
+import { useState, useEffect } from "react";
 
 
-const postData = [
+const postsData1 = [
     {
         views: "12.5k",
         likes: "12.5k",
@@ -40,7 +43,29 @@ const postData = [
     }
 ]
 
-function App() {
+function Feed() {
+    // const [postsData, setpostsData] = useState([]);
+    // const getPosts = async () => {
+    //     try {
+    //         const querySnapshot = await getDocs(collection(db, "posts"));
+    //         querySnapshot.forEach((doc) => {
+    //             // doc.data() is never undefined for query doc snapshots
+    //             setpostsData(postsData => [...postsData, doc.data()]);
+    //             console.log(doc.id, " => ", doc.data());
+
+    //         });
+    //     } catch (error) {
+    //         // console.log("error", error.message)
+    //     }
+    // }
+    // useEffect(() => {
+
+    //     getPosts();
+    //     return () => {
+
+    //     }
+    // }, [])
+
     return (
         <div className="flex flex-col w-full items-center">
             <div className="flex flex-col w-[92%]">
@@ -55,7 +80,7 @@ function App() {
                 </div>
             </div>
             <div className="w-full mt-3 ">
-                {postData.map((item, index) => {
+                {postsData1.map((item, index) => {
                     return (
                         <Post key={index} name={item.name} views={item.views} likes={item.likes} dislikes={item.dislikes} shares={item.shares} postText={item.postText} profilePictureUrl={item.profilePictureUrl} topic={item.topic} />
                     )
@@ -123,4 +148,4 @@ function App() {
     );
 }
 
-export default App;
+export default Feed;
