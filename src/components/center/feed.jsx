@@ -7,7 +7,7 @@ import PostEditor from "./postEditor/index"
 import profile from "../../assets/images/profile.jpg"
 import { UilInvoice } from '@iconscout/react-unicons'
 import { db } from '../../config/firebase'
-import { addDoc, doc, getDocs, collection, onSnapshot } from 'firebase/firestore'
+import { addDoc, doc, query, where, getDocs, collection, onSnapshot } from 'firebase/firestore'
 import { useState, useEffect } from "react";
 
 
@@ -44,27 +44,35 @@ const postsData1 = [
 ]
 
 function Feed() {
-    // const [postsData, setpostsData] = useState([]);
-    // const getPosts = async () => {
-    //     try {
-    //         const querySnapshot = await getDocs(collection(db, "posts"));
-    //         querySnapshot.forEach((doc) => {
-    //             // doc.data() is never undefined for query doc snapshots
-    //             setpostsData(postsData => [...postsData, doc.data()]);
-    //             console.log(doc.id, " => ", doc.data());
+    const [postsData, setpostsData] = useState([]);
+    const getPosts = async () => {
+        try {
+            const querySnapshot = await getDocs(collection(db, "posts"));
+            querySnapshot.forEach((doc) => {
+                // doc.data() is never undefined for query doc snapshots
+                setpostsData(postsData => [...postsData, doc.data()]);
+                console.log(doc.id, " => ", doc.data());
 
-    //         });
-    //     } catch (error) {
-    //         // console.log("error", error.message)
-    //     }
-    // }
-    // useEffect(() => {
+            });
+        } catch (error) {
+            // console.log("error", error.message)
+        }
+    }
+    useEffect(() => {
 
-    //     getPosts();
-    //     return () => {
+        const unsub = onSnapshot(collection(db, "posts"), (querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                // doc.data() is never undefined for query doc snapshots
+                setpostsData(postsData => [...postsData, doc.data()]);
+                console.log(doc.id, " => ", doc.data());
 
-    //     }
-    // }, [])
+            });
+        });
+        return () => {
+            unsub();
+            console.log("unsubscribed")
+        }
+    }, [])
 
     return (
         <div className="flex flex-col w-full items-center">
@@ -80,7 +88,7 @@ function Feed() {
                 </div>
             </div>
             <div className="w-full mt-3 ">
-                {postsData1.map((item, index) => {
+                {postsData.map((item, index) => {
                     return (
                         <Post key={index} name={item.name} views={item.views} likes={item.likes} dislikes={item.dislikes} shares={item.shares} postText={item.postText} profilePictureUrl={item.profilePictureUrl} topic={item.topic} />
                     )

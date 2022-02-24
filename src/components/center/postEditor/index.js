@@ -22,7 +22,7 @@ const Texteditor = () => {
         <div className="text-editor w-full">
             <CustomToolbar />
             <ReactQuill
-                value={body}
+                value={""}
                 onChange={(e) => setBody(e)}
                 placeholder={"Write Something"}
                 modules={Texteditor.modules}
