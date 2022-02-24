@@ -7,7 +7,7 @@ import PostEditor from "./postEditor/index"
 import profile from "../../assets/images/profile.jpg"
 import { UilInvoice } from '@iconscout/react-unicons'
 import { db } from '../../config/firebase'
-import { addDoc, doc, query, where, getDocs, collection, onSnapshot } from 'firebase/firestore'
+import { addDoc, collection, onSnapshot } from 'firebase/firestore'
 import { useState, useEffect } from "react";
 
 
@@ -18,34 +18,43 @@ function randomNumber(min, max) {
 
 function Feed() {
     const [postsData, setpostsData] = useState([]);
+    const [postText, setpostText] = useState("");
     const postData = {
         views: randomNumber(5, 541) + "k",
         likes: randomNumber(4, 7) + "k",
         dislikes: randomNumber(2, 39) + "k",
         shares: randomNumber(82, 44) + "k",
-        postText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. N Praesent dictum luctus ante, id euismod libero dignissim in. Nullam faucibus sagittis sapien ac laoreet. Nam feugiat bibendum nisi. Nunc turpis nunc, egestas eu mollis nec, tincidunt eget lorem. Integer laoreet non tellus et viverra. Sed facilisis neque nec lorem laoreet condimentum. Morbi convallis interdum ultrices. Aenean luctus a lectus in lobortis. Nunc aliquet ornare dolor a semper.",
+        postText: postText,
         name: "John dev",
         topic: "#The NFTs for a poem, an article, a short film, and a novel",
     };
-
+    // to get to post text from quill editor component
+    const getDataFromQuillEditor = (childData) => {
+        setpostText(childData)
+    }
+    // for posting a post
     const sendPost = async () => {
         try {
-            const docRef = await addDoc(collection(db, "posts"), postData);
-            console.log("Document written with ID: ", docRef.id);
-            alert("Post submitted with ID: " + docRef.id);
+            if (postData.postText.length > 0) {
+                const docRef = await addDoc(collection(db, "posts"), postData);
+                console.log("Document written with ID: ", docRef.id);
+                alert("Post submitted with ID: " + docRef.id);
+            } else {
+                alert("Please write something");
+            }
         } catch (e) {
             console.error("Error adding document: ", e);
         }
     }
-    useEffect(() => {
-
-        const unsub = onSnapshot(collection(db, "posts"), (querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                // doc.data() is never undefined for query doc snapshots
-                setpostsData(postsData => [...postsData, doc.data()]);
-                console.log(doc.id, " => ", doc.data());
-
+    useEffect(async () => {
+        // getPostsData();
+        const unsub = onSnapshot(collection(db, "posts"), (Snapshot) => {
+            const tempPosts = []
+            Snapshot.forEach((doc) => {
+                tempPosts.push(doc.data())
             });
+            // console.log("posts", " => ", tempPosts);
+            setpostsData(tempPosts);
         });
         return () => {
             unsub();
@@ -67,7 +76,7 @@ function Feed() {
                 </div>
             </div>
             <div className="w-full mt-3 ">
-                {postsData.map((item, index) => {
+                {postsData?.map((item, index) => {
                     return (
                         <Post key={index} name={item.name} views={item.views} likes={item.likes} dislikes={item.dislikes} shares={item.shares} postText={item.postText} profilePictureUrl={profile} topic={item.topic} />
                     )
@@ -92,7 +101,7 @@ function Feed() {
                         <h1 className="text-2xl text-blue-500 font-medium">Create a Post</h1>
                     </div>
                     <div className="w-full mt-3">
-                        <PostEditor />
+                        <PostEditor parentCallback={getDataFromQuillEditor} postText={postText} />
                     </div>
                     <div className="w-full">
                         <div className='flex items-center justify-between mt-2'>

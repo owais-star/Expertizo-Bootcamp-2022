@@ -1,5 +1,10 @@
-import profile from "../../../assets/images/profile.jpg";
+import ReactQuill from 'react-quill'
+import 'react-quill/dist/quill.snow.css'
 import { UilEye, UilSmile, UilMeh, UilBookmark, UilMessage, UilEllipsisH } from '@iconscout/react-unicons'
+
+const modules = {
+    toolbar: null
+}
 
 const Post = (props) => {
     const current = new Date();
@@ -25,9 +30,15 @@ const Post = (props) => {
 
 
                 <div className="w-[85%] text-medium my-5 pl-2 ">
-                    <p className="">
-                        {props.postText}
-                    </p>
+                    <ReactQuill
+                        className='text-lg '
+                        value={props.postText}
+                        readOnly
+                        theme=""
+                        modules={modules}
+                    />
+
+
                 </div>
 
                 <div className="flex w-[85%] my-5 justify-between">
