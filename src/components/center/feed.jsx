@@ -11,51 +11,30 @@ import { addDoc, doc, query, where, getDocs, collection, onSnapshot } from 'fire
 import { useState, useEffect } from "react";
 
 
-const postsData1 = [
-    {
-        views: "12.5k",
-        likes: "12.5k",
-        dislikes: "12.5k",
-        shares: "12.5k",
-        postText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. N Praesent dictum luctus ante, id euismod libero dignissim in. Nullam faucibus sagittis sapien ac laoreet. Nam feugiat bibendum nisi. Nunc turpis nunc, egestas eu mollis nec, tincidunt eget lorem. Integer laoreet non tellus et viverra. Sed facilisis neque nec lorem laoreet condimentum. Morbi convallis interdum ultrices. Aenean luctus a lectus in lobortis. Nunc aliquet ornare dolor a semper.",
-        name: "John dev ",
-        topic: "#The NFTs for a poem, an article, a short film, and a novel",
-        profilePictureUrl: profile
-    },
-    {
-        views: "12.5k",
-        likes: "12.5k",
-        dislikes: "12.5k",
-        shares: "12.5k",
-        postText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. N Praesent dictum luctus ante, id euismod libero dignissim in. Nullam faucibus sagittis sapien ac laoreet. Nam feugiat bibendum nisi. Nunc turpis nunc, egestas eu mollis nec, tincidunt eget lorem. Integer laoreet non tellus et viverra. Sed facilisis neque nec lorem laoreet condimentum. Morbi convallis interdum ultrices. Aenean luctus a lectus in lobortis. Nunc aliquet ornare dolor a semper.",
-        name: "Craig Cooper",
-        topic: "#The NFTs for a poem, an article, a short film, and a novel",
-        profilePictureUrl: profile
-    }, {
-        views: "12.5k",
-        likes: "12.5k",
-        dislikes: "12.5k",
-        shares: "12.5k",
-        postText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. N Praesent dictum luctus ante, id euismod libero dignissim in. Nullam faucibus sagittis sapien ac laoreet. Nam feugiat bibendum nisi. Nunc turpis nunc, egestas eu mollis nec, tincidunt eget lorem. Integer laoreet non tellus et viverra. Sed facilisis neque nec lorem laoreet condimentum. Morbi convallis interdum ultrices. Aenean luctus a lectus in lobortis. Nunc aliquet ornare dolor a semper.",
-        name: "Alice willway",
-        topic: "#The NFTs for a poem, an article, a short film, and a novel",
-        profilePictureUrl: profile
-    }
-]
+
+function randomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
 
 function Feed() {
     const [postsData, setpostsData] = useState([]);
-    const getPosts = async () => {
-        try {
-            const querySnapshot = await getDocs(collection(db, "posts"));
-            querySnapshot.forEach((doc) => {
-                // doc.data() is never undefined for query doc snapshots
-                setpostsData(postsData => [...postsData, doc.data()]);
-                console.log(doc.id, " => ", doc.data());
+    const postData = {
+        views: randomNumber(5, 541) + "k",
+        likes: randomNumber(4, 7) + "k",
+        dislikes: randomNumber(2, 39) + "k",
+        shares: randomNumber(82, 44) + "k",
+        postText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. N Praesent dictum luctus ante, id euismod libero dignissim in. Nullam faucibus sagittis sapien ac laoreet. Nam feugiat bibendum nisi. Nunc turpis nunc, egestas eu mollis nec, tincidunt eget lorem. Integer laoreet non tellus et viverra. Sed facilisis neque nec lorem laoreet condimentum. Morbi convallis interdum ultrices. Aenean luctus a lectus in lobortis. Nunc aliquet ornare dolor a semper.",
+        name: "John dev",
+        topic: "#The NFTs for a poem, an article, a short film, and a novel",
+    };
 
-            });
-        } catch (error) {
-            // console.log("error", error.message)
+    const sendPost = async () => {
+        try {
+            const docRef = await addDoc(collection(db, "posts"), postData);
+            console.log("Document written with ID: ", docRef.id);
+            alert("Post submitted with ID: " + docRef.id);
+        } catch (e) {
+            console.error("Error adding document: ", e);
         }
     }
     useEffect(() => {
@@ -90,7 +69,7 @@ function Feed() {
             <div className="w-full mt-3 ">
                 {postsData.map((item, index) => {
                     return (
-                        <Post key={index} name={item.name} views={item.views} likes={item.likes} dislikes={item.dislikes} shares={item.shares} postText={item.postText} profilePictureUrl={item.profilePictureUrl} topic={item.topic} />
+                        <Post key={index} name={item.name} views={item.views} likes={item.likes} dislikes={item.dislikes} shares={item.shares} postText={item.postText} profilePictureUrl={profile} topic={item.topic} />
                     )
                 })}
             </div>
@@ -140,7 +119,7 @@ function Feed() {
                                     </div>
                                 </div>
                             </div>
-                            <button className="flex justify-center w-[31rem] h-11 items-center hover:bg-blue-700 bg-blue-600 rounded-2xl">
+                            <button onClick={sendPost} className="flex justify-center w-[31rem] h-11 items-center hover:bg-blue-700 bg-blue-600 rounded-2xl">
 
                                 <h3 className='text-white text-xl'>Post</h3>
 
