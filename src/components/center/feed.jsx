@@ -19,6 +19,32 @@ function randomNumber(min, max) {
 function Feed() {
     const [postsData, setpostsData] = useState([]);
     const [postText, setpostText] = useState("");
+    // pagination
+    const [currentPage, setCurrentPage] = useState(1)
+    const [postsPerPage] = useState(3)
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = postsData.slice(indexOfFirstPost, indexOfLastPost);
+
+    const paginate = (pageNumber) => {
+
+        setCurrentPage(pageNumber)
+    }
+
+    const nextPage = (noOfPages) => {
+        if (noOfPages.length > currentPage) {
+            setCurrentPage(currentPage + 1)
+        } else {
+            alert("No more posts")
+        }
+    }
+    const prevPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1)
+        } else {
+            alert("this is the first page")
+        }
+    }
     const postData = {
         views: randomNumber(5, 541) + "k",
         likes: randomNumber(4, 7) + "k",
@@ -76,14 +102,14 @@ function Feed() {
                 </div>
             </div>
             <div className="w-full mt-3 ">
-                {postsData?.map((item, index) => {
+                {currentPosts?.map((item, index) => {
                     return (
                         <Post key={index} name={item.name} views={item.views} likes={item.likes} dislikes={item.dislikes} shares={item.shares} postText={item.postText} profilePictureUrl={profile} topic={item.topic} />
                     )
                 })}
             </div>
             <div className="flex justify-center mt-3 w-full">
-                <Pagination />
+                <Pagination postsPerPage={postsPerPage} totalPosts={postsData.length} paginate={paginate} prevPage={prevPage} nextPage={nextPage} />
             </div>
             <div className="w-[92%]">
                 <div className="w-full my-8">
