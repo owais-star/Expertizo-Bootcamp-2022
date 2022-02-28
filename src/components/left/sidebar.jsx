@@ -47,7 +47,7 @@ function Aside() {
                     <div className="h-28 rounded-tl-2xl rounded-tr-2xl w-full bg-cover bg-no-repeat bg-coverphoto"></div>
                     <div className="flex flex-col h-24 w-full  border-b-2  items-center bg-white">
                         <div className="relative  top-[-28px] border-2 border-blue-300 p-0.5 rounded-full">
-                            <img className="h-12 w-12 rounded-full" alt="" src={image} alt="" />
+                            <img className="h-12 w-12 rounded-full" alt="" src={image} />
                         </div>
                         <h1 className="text-blue-600 text-lg mt-[-26px] font-bold">Professor</h1>
                         <h2 className="text-blue-400 mb-4">Istanbul, Turkey</h2>

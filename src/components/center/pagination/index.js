@@ -10,7 +10,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, nextPage, prevPage }) 
     return (
         <div className="bg-white px-4 py-3 flex items-center justify-between sm:px-6">
 
-            <div className="hidden sm:flex-1 sm:flex sm:items-center">
+            <div className="flex-1 flex items-center">
                 <div>
                     <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
                         <a

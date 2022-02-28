@@ -72,7 +72,7 @@ function Feed() {
             console.error("Error adding document: ", e);
         }
     }
-    useEffect(async () => {
+    useEffect(() => {
         // getPostsData();
         const unsub = onSnapshot(collection(db, "posts"), (Snapshot) => {
             const tempPosts = []

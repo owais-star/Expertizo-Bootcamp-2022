@@ -11,18 +11,18 @@ function App() {
   return (
     <>
       <div className="flex ">
-        <aside className=" w-2/6 bg-gradient-to-b from-gray-100 to-white">
+        <aside className=" w-2/6 bg-gradient-to-b from-gray-100 to-white sm:block hidden">
           <Leftaside />
         </aside>
-        <div className="w-full h-full">
+        <div className="flex w-full flex-col">
           <header className='w-full h-24'>
             <Header />
           </header>
           <main className='flex'>
-            <div className='w-[70%]'>
+            <div className='sm:w-[70%] w-full'>
               <Center />
             </div>
-            <div className='w-[30%]'>
+            <div className='w-[30%] sm:block hidden'>
               <Rightaside />
             </div>
           </main>
