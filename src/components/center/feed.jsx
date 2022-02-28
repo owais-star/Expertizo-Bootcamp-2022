@@ -5,6 +5,7 @@ import Post from "./post/index.jsx"
 import Pagination from "./pagination/index"
 import PostEditor from "./postEditor/index"
 import profile from "../../assets/images/profile.jpg"
+import Categories from "../right/categories/index"
 import { UilInvoice } from '@iconscout/react-unicons'
 import { db } from '../../config/firebase'
 import { addDoc, collection, onSnapshot } from 'firebase/firestore'
@@ -93,6 +94,9 @@ function Feed() {
             <div className="flex flex-col w-[92%]">
                 <div className=" mt-6">
                     <img src={banner3} alt="" className=" w-full rounded-2xl h-64" />
+                </div>
+                <div className="sm:hidden block mt-5">
+                    <Categories />
                 </div>
                 <div className="w-full mt-6">
                     <SelectedCategory />
